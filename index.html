@@ -215,11 +215,12 @@ footer{background:var(--preto);border-top:1px solid rgba(123,47,190,0.15);paddin
 footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
 
 @media(max-width:960px){
-  .hero-layout{grid-template-columns:1fr;padding:100px 20px 60px;gap:28px;text-align:center;}
+  .hero{flex-direction:column;justify-content:flex-start;}
+  .top-headline{position:relative;top:auto;left:auto;transform:none;white-space:normal;text-align:center;padding:40px 20px 0;}
+  .hero-layout{grid-template-columns:1fr;padding:32px 20px 60px;gap:28px;text-align:center;}
   .hero-left{padding-right:0;align-items:center;order:2;}
   .hero-center{order:1;}
   .hero-right{padding-left:0;order:3;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .top-headline{position:relative;top:auto;left:auto;transform:none;margin-bottom:0;white-space:normal;}
   .stats{justify-content:center;}
   .trust{align-items:center;}
   .hero-desc{max-width:100%;}
@@ -298,9 +299,22 @@ footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
 .btn-oferta.roxo:hover{box-shadow:0 0 40px rgba(155,89,208,0.6);}
 
 @media(max-width:768px){
-  .ofertas-grid{grid-template-columns:1fr;max-width:380px;}
+  .ofertas-grid{grid-template-columns:1fr;max-width:100%;}
   .oferta-card.destaque{transform:scale(1);}
   .oferta-card.destaque:hover{transform:translateY(-6px);}
+  .preco-por{font-size:60px;}
+  .preco-box{padding:32px 20px;}
+  .sec{padding:60px 16px;}
+  .ofertas-section{padding:60px 16px;}
+  .oferta-bg{padding:60px 16px;}
+  .cta-final{padding:60px 16px !important;}
+}
+@media(max-width:480px){
+  .hero-right{grid-template-columns:1fr;}
+  .stat{padding:0 8px;}
+  .preco-por{font-size:48px;}
+  .oferta-por{font-size:44px;}
+  .preco-box{padding:24px 16px;}
 }
 </style>
 </head>
@@ -510,7 +524,7 @@ footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
 </section>
 
 <!-- CTA FINAL -->
-<div style="background:radial-gradient(ellipse at 50% 0%,#2D0F50 0%,#08080D 70%);padding:100px 20px;text-align:center;border-top:1px solid rgba(123,47,190,0.3);">
+<div class="cta-final" style="background:radial-gradient(ellipse at 50% 0%,#2D0F50 0%,#08080D 70%);padding:100px 20px;text-align:center;border-top:1px solid rgba(123,47,190,0.3);">
   <h2 class="sec-title">SUA TRANSFORMAÇÃO<br><span class="d">COMEÇA HOJE</span></h2>
   <p style="color:var(--cinza);font-size:18px;max-width:480px;margin:0 auto 40px;line-height:1.7;">Daqui a 30 dias você pode estar com um corpo diferente. A decisão é agora.</p>
   <a href="https://app.monetizze.com.br/checkout/DEH375286" class="btn-fogo" style="display:inline-block;font-size:22px;padding:22px 64px;">
