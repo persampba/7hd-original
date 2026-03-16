@@ -1,28 +1,16 @@
-    
-      .top-headline {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+.top-headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
 
-          /* Ensure it stays centered */
-      }
-      
-      @media (max-width: 600px) {
-          /* Center the headline on mobile devices */
-          .top-headline {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-          }
-      }
-  
-  .top-headline h1 {
-      text-align: center;
-  }
-  
-  /* Ensure the headline text does not drift to the right */
-  .top-headline h1 {
-      margin: 0;
-  }
-  
-  /* More CSS rules can follow... */
+@media (max-width: 768px) {
+    .top-headline {
+        flex-direction: column;
+    }
+}
