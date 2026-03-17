@@ -215,14 +215,106 @@ footer{background:var(--preto);border-top:1px solid rgba(123,47,190,0.15);paddin
 footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
 
 @media(max-width:960px){
-  .hero-layout{grid-template-columns:1fr;padding:100px 20px 60px;gap:28px;text-align:center;}
+  .hero{flex-direction:column;justify-content:flex-start;}
+  .top-headline{position:relative;top:auto;left:auto;transform:none;white-space:normal;text-align:center;padding:40px 20px 0;}
+  .hero-layout{grid-template-columns:1fr;padding:32px 20px 60px;gap:28px;text-align:center;}
   .hero-left{padding-right:0;align-items:center;order:2;}
   .hero-center{order:1;}
   .hero-right{padding-left:0;order:3;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  .top-headline{position:relative;top:auto;left:auto;transform:none;margin-bottom:0;white-space:normal;}
   .stats{justify-content:center;}
   .trust{align-items:center;}
   .hero-desc{max-width:100%;}
+}
+
+/* ===== ORDER BUMP ===== */
+.ofertas-section{
+  background:radial-gradient(ellipse at 50% 0%,#1a0835 0%,#08080D 70%);
+  padding:80px 20px;
+  border-top:1px solid rgba(123,47,190,0.35);
+}
+.ofertas-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1100px;
+  margin:48px auto 0;
+}
+.oferta-card{
+  background:var(--preto3);
+  border:2px solid rgba(123,47,190,0.3);
+  border-radius:16px;
+  padding:36px 28px;
+  text-align:center;
+  position:relative;
+  transition:border-color 0.2s,transform 0.2s;
+  display:flex;flex-direction:column;align-items:center;
+}
+.oferta-card:hover{border-color:var(--roxo-vivo);transform:translateY(-6px);}
+.oferta-card.destaque{
+  border-color:var(--fogo);
+  box-shadow:0 0 60px rgba(255,107,0,0.25);
+  transform:scale(1.04);
+}
+.oferta-card.destaque:hover{transform:scale(1.04) translateY(-6px);}
+.oferta-tag{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#FF6B00,#FFB800);
+  color:#000;font-size:10px;font-weight:900;letter-spacing:2px;
+  text-transform:uppercase;padding:5px 18px;border-radius:50px;
+  white-space:nowrap;
+}
+.oferta-qtd{
+  font-family:'Bebas Neue',sans-serif;font-size:64px;
+  background:linear-gradient(135deg,var(--roxo),var(--roxo-vivo));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;margin-bottom:4px;
+}
+.oferta-nome{font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cinza);margin-bottom:20px;}
+.oferta-economia{
+  background:rgba(255,107,0,0.1);
+  border:1px solid rgba(255,107,0,0.3);
+  border-radius:8px;padding:8px 16px;
+  font-size:12px;font-weight:800;color:var(--fogo2);
+  letter-spacing:1px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.oferta-de{font-size:14px;color:var(--cinza);text-decoration:line-through;margin-bottom:4px;}
+.oferta-por{font-family:'Bebas Neue',sans-serif;font-size:52px;background:linear-gradient(135deg,#FF6B00,#FFB800);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:4px;}
+.oferta-parcel{font-size:13px;color:var(--cinza);margin-bottom:24px;}
+.oferta-por-unid{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:28px;}
+.btn-oferta{
+  display:block;width:100%;
+  background:linear-gradient(135deg,#FF6B00 0%,#FFB800 100%);
+  color:#000;font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:14px 20px;border-radius:6px;text-decoration:none;
+  box-shadow:0 0 24px rgba(255,107,0,0.4);
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.btn-oferta:hover{transform:scale(1.03);box-shadow:0 0 40px rgba(255,107,0,0.6);}
+.btn-oferta.roxo{
+  background:linear-gradient(135deg,var(--roxo) 0%,var(--roxo-vivo) 100%);
+  box-shadow:0 0 24px rgba(123,47,190,0.4);
+}
+.btn-oferta.roxo:hover{box-shadow:0 0 40px rgba(155,89,208,0.6);}
+
+@media(max-width:768px){
+  .ofertas-grid{grid-template-columns:1fr;max-width:100%;}
+  .oferta-card.destaque{transform:scale(1);}
+  .oferta-card.destaque:hover{transform:translateY(-6px);}
+  .preco-por{font-size:60px;}
+  .preco-box{padding:32px 20px;}
+  .sec{padding:60px 16px;}
+  .ofertas-section{padding:60px 16px;}
+  .oferta-bg{padding:60px 16px;}
+  .cta-final{padding:60px 16px !important;}
+}
+@media(max-width:480px){
+  .hero-right{grid-template-columns:1fr;}
+  .stat{padding:0 8px;}
+  .preco-por{font-size:48px;}
+  .oferta-por{font-size:44px;}
+  .preco-box{padding:24px 16px;}
 }
 </style>
 </head>
@@ -369,6 +461,54 @@ footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
   </div>
 </section>
 
+<!-- 3 OFERTAS / ORDER BUMP -->
+<section class="ofertas-section">
+  <p class="sec-tag" style="text-align:center;">Escolha seu kit</p>
+  <h2 class="sec-title" style="text-align:center;">QUANTO MAIS VOCÊ<br><span class="d">LEVA, MAIS ECONOMIZA</span></h2>
+  <p style="color:var(--cinza);font-size:17px;max-width:500px;margin:0 auto;line-height:1.7;text-align:center;">Resultados melhores com uso contínuo. Garanta seu estoque com desconto progressivo.</p>
+
+  <div class="ofertas-grid">
+
+    <!-- OFERTA 1 -->
+    <div class="oferta-card">
+      <div class="oferta-qtd">1</div>
+      <div class="oferta-nome">Frasco</div>
+      <div class="oferta-de">De R$ 497,00</div>
+      <div class="oferta-por">R$297</div>
+      <div class="oferta-parcel">ou 12x de R$ 29,45</div>
+      <div class="oferta-por-unid">R$ 297,00 por frasco</div>
+      <a href="https://app.monetizze.com.br/checkout/DEH375286" class="btn-oferta roxo">QUERO 1 FRASCO</a>
+    </div>
+
+    <!-- OFERTA 2 — DESTAQUE -->
+    <div class="oferta-card destaque">
+      <div class="oferta-tag">⚡ MAIS VENDIDO</div>
+      <div class="oferta-qtd">3</div>
+      <div class="oferta-nome">Frascos</div>
+      <div class="oferta-economia">🔥 ECONOMIZE R$ 200</div>
+      <div class="oferta-de">De R$ 891,00</div>
+      <div class="oferta-por">R$691</div>
+      <div class="oferta-parcel">ou 12x de R$ 68,50</div>
+      <div class="oferta-por-unid">R$ 230,33 por frasco</div>
+      <a href="https://pay.monetizze.com.br/DTW375327" class="btn-oferta">QUERO 3 FRASCOS</a>
+    </div>
+
+    <!-- OFERTA 3 -->
+    <div class="oferta-card">
+      <div class="oferta-tag" style="background:linear-gradient(135deg,#7B2FBE,#9B59D0);color:#fff;">💎 MELHOR CUSTO</div>
+      <div class="oferta-qtd">6</div>
+      <div class="oferta-nome">Frascos</div>
+      <div class="oferta-economia">🔥 ECONOMIZE R$ 600</div>
+      <div class="oferta-de">De R$ 1.782,00</div>
+      <div class="oferta-por">R$1182</div>
+      <div class="oferta-parcel">ou 12x de R$ 117,20</div>
+      <div class="oferta-por-unid">R$ 197,00 por frasco</div>
+      <a href="https://app.monetizze.com.br/checkout/DNM375328" class="btn-oferta roxo">QUERO 6 FRASCOS</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="sec sec-dark">
 <div class="sec-inner" style="max-width:740px;">
@@ -377,14 +517,14 @@ footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
   <div class="faq-item"><p class="faq-q">Para quem é o 7HD?</p><p class="faq-a">Para homens e mulheres que querem emagrecer com mais velocidade, definir o corpo ou ganhar mais energia nos treinos.</p></div>
   <div class="faq-item"><p class="faq-q">Em quanto tempo vejo resultado?</p><p class="faq-a">Muitos clientes relatam diferença já na primeira semana. Os melhores resultados aparecem com uso contínuo de 30 a 90 dias.</p></div>
   <div class="faq-item"><p class="faq-q">Preciso fazer dieta ou academia?</p><p class="faq-a">O 7HD potencializa qualquer esforço, mas não é obrigatório. Alimentação equilibrada acelera muito os resultados.</p></div>
-  <div class="faq-item"><p class="faq-q">Como tomar?</p><p class="faq-a">1 a 2 cápsulas ao dia, de preferência antes das refeições ou do treino. Consulte sempre um profissional de saúde.</p></div>
+  <div class="faq-item"><p class="faq-q">Como tomar?</p><p class="faq-a">1 cápsula ao dia, de preferência antes das refeições ou do treino. Consulte sempre um profissional de saúde.</p></div>
   <div class="faq-item"><p class="faq-q">Como funciona a garantia?</p><p class="faq-a">7 dias para testar. Não ficou satisfeito? Devolvemos 100% do valor pago. Sem burocracia.</p></div>
   <div class="faq-item"><p class="faq-q">Como recebo o produto?</p><p class="faq-a">Após confirmação do pagamento, enviamos em até 24h com rastreamento para todo o Brasil.</p></div>
 </div>
 </section>
 
 <!-- CTA FINAL -->
-<div style="background:radial-gradient(ellipse at 50% 0%,#2D0F50 0%,#08080D 70%);padding:100px 20px;text-align:center;border-top:1px solid rgba(123,47,190,0.3);">
+<div class="cta-final" style="background:radial-gradient(ellipse at 50% 0%,#2D0F50 0%,#08080D 70%);padding:100px 20px;text-align:center;border-top:1px solid rgba(123,47,190,0.3);">
   <h2 class="sec-title">SUA TRANSFORMAÇÃO<br><span class="d">COMEÇA HOJE</span></h2>
   <p style="color:var(--cinza);font-size:18px;max-width:480px;margin:0 auto 40px;line-height:1.7;">Daqui a 30 dias você pode estar com um corpo diferente. A decisão é agora.</p>
   <a href="https://app.monetizze.com.br/checkout/DEH375286" class="btn-fogo" style="display:inline-block;font-size:22px;padding:22px 64px;">
@@ -413,3 +553,5 @@ footer a{color:rgba(255,255,255,0.38);text-decoration:none;}
 </script>
 </body>
 </html>
+
+
